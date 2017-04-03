@@ -1,0 +1,50 @@
+// Place all the styles related to the Messages controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+// Place all the styles related to the Messages controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+html, body, p {
+  margin: 0;
+}
+
+body {
+  background-color: #f6fbf6;
+  font-family: 'Arial', sans-serif;
+}
+.container {
+  width: 480px;
+  margin: 0 auto;
+}
+
+.messages, .create {
+  margin: 40px 0;
+}
+
+.messages a,
+.create .actions input {
+  background-color: #538441;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  font-size: 14px;
+  margin-top: 10px;
+  padding: 12px 24px;
+  transition: background-color 0.5s;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.message {
+  background-color: #fff;
+  font-weight: 300;
+  padding: 16px;
+  margin-bottom: 10px;
+}
+
+p.time {
+  color: #0084d7;
+  font-size: 12px;
+  margin-top: 12px;
+}

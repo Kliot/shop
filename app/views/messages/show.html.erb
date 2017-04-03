@@ -1,0 +1,8 @@
+<% if current_user && current_user.editor? %>
+    <p>
+      <%= link_to "Edit", edit_message_path(@message.id) %>
+    </p>
+<% end %>
+<% if current_user && current_user.admin? %>
+    <p><%= link_to "Delete", message_path(@message), method: "delete" %><p>
+<% end %>

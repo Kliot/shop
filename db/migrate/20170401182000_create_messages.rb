@@ -1,0 +1,2 @@
+class CreateMessages < ActiveRecord
+end
