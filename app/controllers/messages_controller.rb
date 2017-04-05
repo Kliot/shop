@@ -1,5 +1,6 @@
 class MessagesController < ApplicationController
 
+
   before_action :require_user, only: [:show]
   before_action :require_editor, only: [:show, :edit]
 
