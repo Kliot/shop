@@ -1,0 +1,15 @@
+<div class="list-products">
+  <div class="container">
+    <% @products.each do |product| %>
+        <div class="products">
+          <p><%= product.title %></p>
+          <p><%= product.description %></p>
+          <p><%= link_to 'Edit', edit_product_path(product) %></p>
+          <p><%= link_to 'Destroy', product_path(product),
+                         method: :delete %></p>
+          <p><%= link_to 'Show', product_path(product) %></p>
+        </div>
+    <% end %>
+    <%= link_to 'Create Product', "products/new" %>
+  </div>
+</div>

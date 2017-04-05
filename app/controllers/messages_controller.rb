@@ -40,8 +40,6 @@ class MessagesController < ApplicationController
     redirect_to messages_path
   end
 
-  # before_action :require_user, only: [:index, :show]
-
   private
 
   def message_params
