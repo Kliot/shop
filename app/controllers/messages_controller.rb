@@ -1,8 +1,11 @@
 class MessagesController < ApplicationController
 
-
-  before_action :require_user, only: [:show]
+  before_action :require_user, only: [:show, :edit, :update, :destroy]
   before_action :require_editor, only: [:show, :edit]
+  before_action :require_admin, only: [:destroy]
+
+  # before_action :require_user, only: [:show]
+  # before_action :require_editor, only: [:show, :edit]
 
   def index
     @messages = Message.all
@@ -31,7 +34,13 @@ class MessagesController < ApplicationController
   end
 
   def update
+    @message = Message.find(params[:id])
 
+    if @message.update(message_params)
+      redirect_to @message
+    else
+      render 'edit'
+    end
   end
 
   def destroy

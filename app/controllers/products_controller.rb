@@ -4,7 +4,7 @@ class ProductsController < ApplicationController
   end
 
   def show
-    @products= Product.find(params[:id])
+    @product= Product.find(params[:id])
   end
 
   def new
@@ -25,14 +25,21 @@ class ProductsController < ApplicationController
   end
 
   def update
+    @product = Product.find(params[:id])
 
+    if @product.update(product_params)
+      redirect_to @product
+    else
+      render 'edit'
+    end
   end
+
 
   def destroy
     @product = Product.find(params[:id])
     @product.destroy
 
-    redirect_to product_path
+    redirect_to '/products'
   end
 
   private

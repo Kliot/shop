@@ -15,4 +15,8 @@ class ApplicationController < ActionController::Base
     redirect_to '/' unless current_user.editor?
   end
 
+  def require_admin
+    redirect_to '/' unless current_user.admin?
+  end
+
 end
