@@ -1,0 +1,10 @@
+<h2>Your Cart
+  <span class="basket-img">
+  <img src="/assets/basket.png" alt="" class="img-responsive">
+</span>
+</h2>
+<%= render @cart %>
+
+<p><%= link_to 'Edit', edit_cart_path(@cart), class: "glyphicon glyphicon-edit" %> </p>
+
+<p><%= link_to 'Back product list', products_path %></p>

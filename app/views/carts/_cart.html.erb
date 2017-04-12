@@ -1,0 +1,7 @@
+<ol class="basket-list">
+  <%= render(@cart.line_items) %>
+
+
+</ol>
+<p class="total">Total: <span><%= number_to_currency(@cart.total_price) %></span></p>
+<%= button_to 'Empty cart', @cart, method: :delete %>
