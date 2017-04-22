@@ -1,3 +1,5 @@
+if ($('#mini-basket').closest(('#cart li').length == 1))
+{ $('#mini-basket').show('blind', 1000); }
 $('#cart').html("<%= escape_javascript render(@cart) %>");
-//$('#current_item').css({'background-color':'#88ff88'}).
-//animate({'background-color':'#114411'}, 1000)
+$('#current_item').css({'color':'red'}).
+animate({'color':'#000000'}, 1000)

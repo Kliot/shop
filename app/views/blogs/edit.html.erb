@@ -1,0 +1,26 @@
+<h1>Editing Blog</h1>
+<div class="col-md-12">
+  <%= form_for :blog, url: blog_path(@blog), method: :patch do |f| %>
+            <div class="field form-group">
+              <%= f.label :title, class:'control-label' %><br>
+              <%= f.text_field :title %>
+            </div>
+            <div class="field form-group">
+              <%= f.label :description, class:'control-label' %><br>
+              <%= f.text_area :description, rows: 6, class:'form-control' %>
+            </div>
+            <div class="field form-group">
+              <%= f.label :image_url, class:'control-label' %><br>
+              <%= f.text_field :image_url %>
+            </div>
+            <div class="actions">
+              <%= f.submit %>
+            </div>
+
+        <% end %>
+        <%= link_to 'Back', blog_path %>
+      </div>
+<%= render 'form', blog: @blog %>
+
+<%= link_to 'Show', @blog %> |
+

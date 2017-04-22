@@ -26,6 +26,7 @@
       <ul class="nav navbar-nav">
         <li class="active"><%= link_to "Home", '/' %></li>
         <li class="active"><%= link_to "Products", '/products' %></li>
+        <li class="active"><%= link_to "Blog", '/blogs' %></li>
       </ul>
       <div class="nav navbar-nav navbar-right">
         <% if current_user %>
@@ -42,14 +43,18 @@
       </div>
     </div>
   </nav>
-  <div class="mini-basket">
-    <div class="mini-basket-list">
-      <h4><%= link_to 'Your Cart', @cart %></h4>
-      <div id="cart">
-        <%= render @cart %>
+  <%= hidden_div_if(@cart.line_items.empty?, id: 'mini-basket') do %>
+      <div class="mini-basket" id="mini-basket">
+        <div class="mini-basket-list">
+          <h4><%= link_to 'Your Cart', @cart %></h4>
+          <div id="cart">
+            <%= render @cart %>
+          </div>
+        </div>
       </div>
-    </div>
-  </div>
+  <% end %>
+
+
 
 
   <%= yield %>

@@ -14,27 +14,26 @@
             </ul>
           </div>
       <% end %>
-      <div class="field">
-        <%= f.label :title %><br>
+      <div class="field form-group">
+        <%= f.label :title, class:'control-label' %><br>
         <%= f.text_field :title %>
       </div>
-      <div class="field">
-        <%= f.label :description %><br>
-        <%= f.text_area :description, rows: 6 %>
+      <div class="field form-group">
+        <%= f.label :description, class:'control-label' %><br>
+        <%= f.text_area :description, rows: 6, class:'form-control' %>
       </div>
-      <div class="field">
-        <%= f.label :image_url %><br>
+      <div class="field form-group">
+        <%= f.label :image_url, class:'control-label' %><br>
         <%= f.text_field :image_url %>
       </div>
       <div class="field form-group">
         <%= f.label :price, class:'control-label' %><br>
         <%= f.text_field :price %>
       </div>
-      <p>
+      <div class="actions">
         <%= f.submit %>
-      </p>
+      </div>
 
   <% end %>
-
   <%= link_to 'Back', product_path %>
 </div>

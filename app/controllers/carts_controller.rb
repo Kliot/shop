@@ -3,7 +3,7 @@ class CartsController < ApplicationController
   rescue_from ActiveRecord::RecordNotFound, with: :invalid_cart
   def invalid_cart
     logger.error "Attempt to access invalid cart #{params[:id]}"
-    redirect_to store_url, notice: 'Invalid cart'
+    redirect_to page_url, notice: 'Invalid cart'
   end
 
   # GET /carts
@@ -62,7 +62,7 @@ class CartsController < ApplicationController
     @cart.destroy if @cart.id == session[:cart_id]
     session[:cart_id] = nil
     respond_to do |format|
-      format.html { redirect_to products_url, notice: 'Cart was successfully destroyed.' }
+      format.html { redirect_to products_url }
       format.json { head :no_content }
     end
   end

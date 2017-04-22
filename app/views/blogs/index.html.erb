@@ -1,0 +1,41 @@
+
+<h1>Blogs</h1>
+
+<div class="list-blogs">
+  <div class="container">
+    <% @blogs.each do |blog| %>
+        <div class="col-md-4">
+          <div class="products col-md-12">
+            <div class="col-md-12">
+              <div class="col-md-12">
+                <h2><%= blog.title %></h2>
+              </div>
+              <div class="col-md-12 text-center">
+                <p class="product-img">
+                  <%= image_tag (blog.image_url), class: "img-responsive" %>
+                </p>
+              </div>
+            </div>
+            <div class="col-md-12">
+              <p class="shot-description"><%= blog.description %></p>
+            </div>
+
+            <div class="col-md-12">
+              <p><%= link_to 'Edit', edit_blog_path(blog), class: "glyphicon glyphicon-edit" %></p>
+              <p><%= link_to 'Show', blog, class: "glyphicon glyphicon-eye-open" %></p>
+              <p>messages in blog <%= blog.messages.count %></p>
+            </div>
+            <p class="del"><%= link_to '',  blog, class: "glyphicon glyphicon-remove",
+                                               method: :delete %></p>
+          </div>
+        </div>
+    <% end %>
+    <div class="col-md-12">
+      <div class="col-md-6">
+        <%=  link_to 'Create Blog', new_blog_path, class: "btn btn-info" %>
+      </div>
+    </div>
+  </div>
+</div>
+
+

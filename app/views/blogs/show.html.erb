@@ -1,0 +1,45 @@
+<div class="list-blogs">
+  <div class="container">
+        <div class="col-md-12">
+          <div class="products col-md-12">
+              <div class="col-md-4">
+                <p class="product-img">
+                  <%= image_tag (@blog.image_url), class: "img-responsive" %>
+                </p>
+              </div>
+            <div class="col-md-8">
+              <h2><%= @blog.title %></h2>
+              <p><%= @blog.description %></p>
+            </div>
+            <div class="col-md-12">
+              <p><%= link_to 'Edit', edit_blog_path(@blog), class: "glyphicon glyphicon-edit" %></p>
+            </div>
+            <p class="del"><%= link_to '', blog_path(@blog), class: "glyphicon glyphicon-remove",
+                                       method: :delete %></p>
+          </div>
+        </div>
+    <div class="col-md-12">
+      <p>
+        <strong>Comment:</strong>
+        <div id='com'>
+      <p class="text-center"><%= @blog.messages.count %></p>
+          <%= render(@blog.messages) %>
+
+      </div>
+
+        </p>
+
+    </div>
+    <%= render "messages/form" %>
+
+
+    <div class="col-md-12">
+      <div class="col-md-6">
+
+
+        <%= link_to 'Edit', edit_blog_path(@blog) %> |
+        <%= link_to 'Back', blogs_path %>
+    </div>
+    </div>
+  </div>
+</div>
