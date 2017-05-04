@@ -1,0 +1,33 @@
+
+<div class="form">
+
+  <h1>Profile</h1>
+  <%= image_tag @user.avatar.url(:medium), id: 'user_avatar_show' %>
+
+  <%= form_for @user do |f| %>
+      <div class="form-group col-md-12">
+        <label for="inputEmail" class="control-label col-md-2">Avatar</label>
+        <div class="col-md-4">
+          <%= f.file_field :avatar %>
+        </div>
+      </div>
+      <div class="form-group col-md-12">
+        <label for="inputEmail" class="control-label col-md-2" >Адрес email:</label>
+        <div class="col-md-4">
+          <%= f.email_field :email, :placeholder => "Email", class:"form-control" %>
+        </div>
+      </div>
+      <div class="form-group col-md-12">
+        <label for="inputEmail" class="control-label col-md-2">Nick</label>
+        <div class="col-md-4">
+          <%= f.text_field :nick, :placeholder => "Nick", class:"form-control" %>
+        </div>
+      </div>
+      <div class="col-md-2">
+        <%= f.submit "Save", class:"btn btn-default" %>
+      </div>
+
+  <% end %>
+
+
+</div>

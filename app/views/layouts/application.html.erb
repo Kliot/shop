@@ -29,26 +29,31 @@
         <li class="active"><%= link_to "Blog", '/blogs' %></li>
       </ul>
       <div class="nav navbar-nav navbar-right">
-        <% if current_user %>
-            <ul>
-              <li><%= current_user.email %></li>
-              <li class="btn btn-info"><%= link_to "Log out", logout_path, method: "delete" %></li>
-            </ul>
-        <% else %>
-            <ul>
-              <li class="btn btn-info"><%= link_to "Login", 'login' %></a></li>
-              <li class="btn btn-info"><%= link_to "Signup", 'signup' %></a></li>
-            </ul>
-        <% end %>
+        <ul>
+          <% if user_signed_in? %>
+              <li>
+                <%= link_to me_users_path do %>
+                    <span class="avatar-mini ">
+                      <%= image_tag current_user.avatar.url(:thumb), class:'img-circle img-responsive' %>
+                    </span>
+                <% end  %>
+              </li>
+              <li class="btn btn-info"><%= link_to 'Log out', destroy_user_session_path, method: :delete%></li>
+          <% else %>
+              <li class="btn btn-info"><%= link_to 'Sign up', new_user_registration_path %></li>
+              <li class="btn btn-info" ><%= link_to 'Log in', new_user_session_path %></li>
+        <%end%>
+          </ul>
       </div>
     </div>
   </nav>
+
   <%= hidden_div_if(@cart.line_items.empty?, id: 'mini-basket') do %>
       <div class="mini-basket" id="mini-basket">
         <div class="mini-basket-list">
           <h4><%= link_to 'Your Cart', @cart %></h4>
           <div id="cart">
-            <%= render @cart %>
+            <!--%= render @cart %>-->
           </div>
         </div>
       </div>
@@ -56,8 +61,6 @@
 
 
 
-
   <%= yield %>
-  </div>
   </body>
 </html>

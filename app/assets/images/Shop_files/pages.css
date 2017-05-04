@@ -1,0 +1,43 @@
+/* line 4, /home/oleg/rubymine/RubyMine-2016.3.2/bin/shop/app/assets/stylesheets/pages.scss */
+body {
+  width: 100%;
+  margin: 0 auto;
+  position: relative;
+}
+
+/* line 9, /home/oleg/rubymine/RubyMine-2016.3.2/bin/shop/app/assets/stylesheets/pages.scss */
+a {
+  color: #000000;
+}
+
+/* line 13, /home/oleg/rubymine/RubyMine-2016.3.2/bin/shop/app/assets/stylesheets/pages.scss */
+.navbar-right ul {
+  list-style: none;
+}
+/* line 15, /home/oleg/rubymine/RubyMine-2016.3.2/bin/shop/app/assets/stylesheets/pages.scss */
+.navbar-right ul li {
+  display: inline-block;
+}
+
+/* line 20, /home/oleg/rubymine/RubyMine-2016.3.2/bin/shop/app/assets/stylesheets/pages.scss */
+.logo {
+  display: inline-block;
+  padding: 0 5px;
+}
+
+/* line 24, /home/oleg/rubymine/RubyMine-2016.3.2/bin/shop/app/assets/stylesheets/pages.scss */
+.logo-img {
+  display: inline-block;
+  width: 50px;
+  height: 50px;
+  vertical-align: middle;
+}
+
+/* line 30, /home/oleg/rubymine/RubyMine-2016.3.2/bin/shop/app/assets/stylesheets/pages.scss */
+body {
+  background-image: url("Berries.png");
+  background-repeat: no-repeat;
+  background-position: 100% 100%;
+  background-color: #ffffff;
+  background-size: 200px 200px;
+}

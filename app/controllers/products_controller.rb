@@ -1,10 +1,11 @@
 class ProductsController < ApplicationController
+  before_action :set_product, only: [:show, :edit, :update, :destroy]
   def index
-    @products = Product.all
+    @page = params[:page].present? ? params[:page].to_i : 1
+    @products = Product.page(@page)
   end
 
   def show
-    @product= Product.find(params[:id])
   end
 
   def new
@@ -12,7 +13,6 @@ class ProductsController < ApplicationController
   end
 
   def edit
-    @product = Product.find(params[:id])
   end
 
   def create
@@ -36,7 +36,6 @@ class ProductsController < ApplicationController
 
 
   def destroy
-    @product = Product.find(params[:id])
     @product.destroy
 
     redirect_to '/products'
@@ -44,7 +43,13 @@ class ProductsController < ApplicationController
 
   private
   def product_params
-    params.require(:product).permit(:title, :description, :image_url, :price)
+    params.require(:product).permit(:title, :description,
+                                    :image_url, :price,
+                                    images_attributes: [:id, :file, :_destroy])
   end
-
+  def set_product
+    @product= Product.find(params[:id])
+  end
 end
+
+

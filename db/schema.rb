@@ -10,7 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170418191634) do
+ActiveRecord::Schema.define(version: 20170503151824) do
+
+  create_table "auth_providers", force: :cascade do |t|
+    t.integer  "user_id"
+    t.string   "provider"
+    t.string   "uid"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["provider"], name: "index_auth_providers_on_provider"
+    t.index ["user_id"], name: "index_auth_providers_on_user_id"
+  end
 
   create_table "blogs", force: :cascade do |t|
     t.string   "title"
@@ -18,12 +28,33 @@ ActiveRecord::Schema.define(version: 20170418191634) do
     t.string   "image_url"
     t.datetime "created_at",                 null: false
     t.datetime "updated_at",                 null: false
+    t.integer  "likees_count",   default: 0
     t.integer  "messages_count", default: 0, null: false
+    t.integer  "likers_count",   default: 0
+    t.integer  "user_id"
+    t.index ["user_id"], name: "index_blogs_on_user_id"
   end
 
   create_table "carts", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "images", force: :cascade do |t|
+    t.string   "file"
+    t.integer  "imagable_id"
+    t.string   "imagable_type"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+  end
+
+  create_table "likes", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "blog_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["blog_id"], name: "index_likes_on_blog_id"
+    t.index ["user_id"], name: "index_likes_on_user_id"
   end
 
   create_table "line_items", force: :cascade do |t|
@@ -39,11 +70,13 @@ ActiveRecord::Schema.define(version: 20170418191634) do
   end
 
   create_table "messages", force: :cascade do |t|
-    t.text     "content"
+    t.string   "content"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer  "blog_id"
+    t.integer  "user_id"
     t.index ["blog_id"], name: "index_messages_on_blog_id"
+    t.index ["user_id"], name: "index_messages_on_user_id"
   end
 
   create_table "orders", force: :cascade do |t|
@@ -65,12 +98,28 @@ ActiveRecord::Schema.define(version: 20170418191634) do
   end
 
   create_table "users", force: :cascade do |t|
+    t.string   "email",                  default: "", null: false
+    t.string   "encrypted_password",     default: "", null: false
+    t.string   "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.integer  "sign_in_count",          default: 0,  null: false
+    t.datetime "current_sign_in_at"
+    t.datetime "last_sign_in_at"
+    t.string   "current_sign_in_ip"
+    t.string   "last_sign_in_ip"
     t.string   "nick"
-    t.string   "email"
-    t.string   "password_digest"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
-    t.string   "role"
+    t.string   "avatar_file_name"
+    t.string   "avatar_content_type"
+    t.integer  "avatar_file_size"
+    t.datetime "avatar_updated_at"
+    t.string   "provider"
+    t.string   "uuid"
+    t.integer  "likees_count",           default: 0
+    t.integer  "role"
+    t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+    t.index ["uuid"], name: "index_users_on_uuid"
   end
 
 end

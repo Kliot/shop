@@ -29,6 +29,8 @@ class CartsController < ApplicationController
   # POST /carts
   # POST /carts.json
   def create
+    # @cart = Cart.find_or_create_by(user_id: current_user.id)
+
     @cart = Cart.new(cart_params)
 
     respond_to do |format|
@@ -72,6 +74,7 @@ class CartsController < ApplicationController
     def set_cart
       @cart = Cart.find(params[:id])
     end
+
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def cart_params

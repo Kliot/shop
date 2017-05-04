@@ -1,0 +1,32 @@
+/* line 8, /home/oleg/rubymine/RubyMine-2016.3.2/bin/shop/app/assets/stylesheets/messages.scss */
+html, body, p {
+  margin: 0;
+}
+
+/* line 12, /home/oleg/rubymine/RubyMine-2016.3.2/bin/shop/app/assets/stylesheets/messages.scss */
+body {
+  background-color: #f6fbf6;
+  font-family: 'Arial', sans-serif;
+}
+
+/* line 16, /home/oleg/rubymine/RubyMine-2016.3.2/bin/shop/app/assets/stylesheets/messages.scss */
+.message, .products {
+  border: 1px solid #e7e7e7;
+  border-radius: 10px;
+  background-color: #f8f8f8;
+  padding: 10px;
+  overflow: hidden;
+  position: relative;
+  margin: 10px 0;
+}
+/* line 24, /home/oleg/rubymine/RubyMine-2016.3.2/bin/shop/app/assets/stylesheets/messages.scss */
+.message .del, .products .del {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+}
+/* line 29, /home/oleg/rubymine/RubyMine-2016.3.2/bin/shop/app/assets/stylesheets/messages.scss */
+.message .time, .products .time {
+  font-size: 10px;
+  font-style: italic;
+}

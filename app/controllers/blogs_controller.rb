@@ -2,29 +2,35 @@ class BlogsController < ApplicationController
 
   before_action :set_blog, only: [:show, :edit, :update, :destroy]
 
-  # GET /blogs
-  # GET /blogs.json
+  def likes
+    @user = current_user # before_action :authenticate_user, only: [:likes]
+    @blog = Blog.find(params[:id])
+    @user.like!(@blog)
+    redirect_to :back
+  end
+  def unlikes
+    @user = current_user # before_action :authenticate_user, only: [:likes]
+    @blog = Blog.find(params[:id])
+    @user.unlike!(@blog)
+    redirect_to :back
+  end
   def index
-    @blogs = Blog.all
+    # @blogs = Blog.all
+    @page = params[:page].present? ? params[:page].to_i : 1
+    @blogs = Blog.page(@page)
   end
 
-  # GET /blogs/1
-  # GET /blogs/1.json
   def show
     # @blog = @blog.messages.build
   end
 
-  # GET /blogs/new
   def new
     @blog = Blog.new
   end
 
-  # GET /blogs/1/edit
   def edit
   end
 
-  # POST /blogs
-  # POST /blogs.json
   def create
     @blog = Blog.new(blog_params)
 
@@ -39,8 +45,6 @@ class BlogsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /blogs/1
-  # PATCH/PUT /blogs/1.json
   def update
     respond_to do |format|
       if @blog.update(blog_params)
@@ -52,17 +56,21 @@ class BlogsController < ApplicationController
       end
     end
   end
-
-  # DELETE /blogs/1
-  # DELETE /blogs/1.json
   def destroy
-    @blog = Blog.find(params[:id])
+    @blog =  Blog.find_by(id: params[:id], user: current_user)
+    authorize @blog
     @blog.destroy
-    respond_to do |format|
-      format.html { redirect_to blogs_url }
-      format.json { head :no_content }
-    end
+    redirect_to blogs_url
   end
+
+  # def destroy
+  #   @blog = Blog.find(params[:id])
+  #   @blog.destroy
+  #   respond_to do |format|
+  #     format.html { redirect_to blogs_url }
+  #     format.json { head :no_content }
+  #   end
+  # end
 
   private
     # Use callbacks to share common setup or constraints between actions.
@@ -75,3 +83,12 @@ class BlogsController < ApplicationController
       params.require(:blog).permit(:title, :description, :image_url)
     end
 end
+
+
+  def destroy
+    @comment = @product.comments.find_by(id: params[:id], user: current_user)
+    authorize @comment
+    @comment.destroy
+    redirect_to product_comments_path(@product)
+  end
+

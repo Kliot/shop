@@ -1,5 +1,10 @@
 class Product < ApplicationRecord
-  has_many :messages, dependent: :destroy
+  has_many :line_items
+  has_many :images, as: :imagable, inverse_of: :imagable
+
+  accepts_nested_attributes_for :images, allow_destroy: true
+
+
   validates :title, :description, :image_url, presence: true
   validates :price, numericality: {greater_than_or_equal_to: 0.01}
   validates :title, uniqueness: true
@@ -7,8 +12,7 @@ class Product < ApplicationRecord
       with: %r{\.(gif|jpg|png)\Z}i,
       message: 'URL должен указывать на изображение формата GIF, JPG или PNG.'
   }
-
-  has_many :line_items
+  paginates_per 4
 
   before_destroy :ensure_not_referenced_by_any_line_item
 
@@ -27,3 +31,5 @@ class Product < ApplicationRecord
     end
   end
 end
+
+

@@ -10,9 +10,61 @@
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
  *
+ *= require font-awesome
  *= require_tree .
  *= require_self
  */
 @import "bootstrap-sprockets";
 @import "bootstrap";
-
+@import "font-awesome-sprockets";
+@import "font-awesome";
+.avatar-mini {
+  width: 50px;
+  height: 40px;
+  display: inline-block;
+  vertical-align: middle;
+}
+.social-icons {
+  font-size: 20px;
+  margin: 10px;
+}
+.fa-github {
+  color: #000000;
+  background-color: #ffffff;
+  border-radius: 50%;
+  &:hover {
+    color: #ffffff;
+    background-color: #000000;
+  }
+}
+.session {
+  width: 100%;
+  max-width: 300px;
+  padding: 20px;
+  margin: 0 auto;
+  border: 1px solid #e7e7e7;
+  border-radius: 10px;
+  background: #f8f8f8;
+  h1 {
+    margin: 5px 0;
+    text-align: center;
+  }
+}
+.carousel {
+  width:300px;
+  height: 200px;
+  margin: 0 auto;
+  .item {
+    width: 300px;
+    height: 200px;
+  }
+  img {
+    margin: 0 auto;
+  }
+}
+.carousel-inner > .item > img, .carousel-inner > .item > a > img {
+  height: 100%;
+}
+.carousel-control.left, .carousel-control.right {
+  background-image: none;
+}
