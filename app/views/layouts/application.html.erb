@@ -47,16 +47,18 @@
       </div>
     </div>
   </nav>
+ <% if user_signed_in? %>
 
-  <%= hidden_div_if(@cart.line_items.empty?, id: 'mini-basket') do %>
-      <div class="mini-basket" id="mini-basket">
-        <div class="mini-basket-list">
-          <h4><%= link_to 'Your Cart', @cart %></h4>
-          <div id="cart">
-            <!--%= render @cart %>-->
+    <%= hidden_div_if(@cart.line_items.empty?, id: 'mini-basket') do %>
+        <div class="mini-basket" id="mini-basket">
+          <div class="mini-basket-list">
+            <h4><%= link_to 'Your Cart', @cart %></h4>
+            <div id="cart">
+              <%= render @cart %>
+            </div>
           </div>
         </div>
-      </div>
+    <% end %>
   <% end %>
 
 

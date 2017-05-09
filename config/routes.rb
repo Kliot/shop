@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  devise_for :admin_users, ActiveAdmin::Devise.config
+  ActiveAdmin.routes(self)
   get '/auth/:provider/callback', to: 'sessions#create'
   devise_for :users
   resources :users, only: [:update] do
@@ -8,7 +10,7 @@ Rails.application.routes.draw do
   end
 
   # get 'signup'  => 'users#new'
-  # 
+  #
   # get '/login' => 'sessions#new'
   # post 'login' => 'sessions#create'
   # delete 'logout' => 'sessions#destroy'
@@ -20,6 +22,7 @@ Rails.application.routes.draw do
   resources :blogs do
     resources :messages
   end
+
   get 'blog/:id/likes', to: 'blogs#likes', as: :likes
   resources :orders
   get '/auth/:provider/callback', to: 'sessions#create'

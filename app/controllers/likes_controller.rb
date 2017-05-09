@@ -13,17 +13,17 @@ class LikesController < ApplicationController
     @user.unlike!(@blog)
     redirect_to :back
   end
-  def like
-    @result = @resource.add_like!(current_user)
-  end
-
-  def unlike
-    @result = @resource.unlike!(current_user)
-  end
+  # def like
+  #   @result = @resource.add_like!(current_user)
+  # end
+  #
+  # def unlike
+  #   @result = @resource.unlike!(current_user)
+  # end
 
   private
 
-  def set_product
+  def set_blog
     @resource = if params[:blog_id].present?
                   Blog.find params[:blog_id]
                 end

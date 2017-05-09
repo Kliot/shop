@@ -6,6 +6,7 @@ class User < ApplicationRecord
   has_attached_file :avatar, styles: { medium: "100x100>", thumb: "50x50>" }, default_url: '/assets/noavatar.png'
   validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\z/
   has_many :blogs
+  has_many :messages
   has_many :auth_providers, dependent: :destroy
   has_many :likes, dependent: :destroy
   has_and_belongs_to_many :liked_blogs, class_name: 'Blog'

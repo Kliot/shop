@@ -9,7 +9,7 @@ end
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.0.2'
 # Use sqlite3 as the database for Active Record
-gem 'sqlite3'
+gem 'pg'
 # Use Puma as the app server
 gem 'puma', '~> 3.0'
 # Use SCSS for stylesheets
@@ -43,6 +43,7 @@ group :development, :test do
   gem 'rspec-rails', '~> 3.5'
   gem 'factory_girl_rails'
   gem 'shoulda-matchers', '~> 3.1'
+  gem 'sqlite3'
 end
 
 group :development do
@@ -73,3 +74,4 @@ gem 'carrierwave', '~> 1.0'
 gem 'cocoon'
 gem 'mini_magick'
 gem 'pundit'
+gem 'activeadmin', github: 'activeadmin'

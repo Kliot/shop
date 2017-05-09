@@ -74,3 +74,4 @@ aggregate, although the species R.
 fruticosus is considered a synonym of R. plicatus.},
                 image_url: 'blackberries.jpg',
                 price: 76.95)
+AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password')

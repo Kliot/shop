@@ -4,30 +4,3 @@
 // Place all the styles related to the Messages controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-
-html, body, p {
-  margin: 0;
-}
-
-body {
-  background-color: #f6fbf6;
-  font-family: 'Arial', sans-serif;
-}
-.message, .products {
-  border: 1px solid #e7e7e7;
-  border-radius: 10px;
-  background-color: #f8f8f8;
-  padding: 10px;
-  overflow: hidden;
-  position: relative;
-  margin: 10px 0;
-  .del {
-    position: absolute;
-    top: 5px;
-    right: 5px;
-  }
-  .time {
-    font-size: 10px;
-    font-style: italic;
-  }
-}

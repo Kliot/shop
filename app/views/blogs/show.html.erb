@@ -11,6 +11,8 @@
               <h2><%= @blog.title %></h2>
               <p><%= @blog.description %></p>
             </div>
+            <span class="product-like">
+      </span>
             <div class="col-md-12">
               <%= link_to '', likes_path(@blog), :class => 'glyphicon glyphicon-thumbs-up' %>
               <%= @blog.likers_count%>
@@ -27,6 +29,7 @@
         <strong>Comment:</strong>
         <div id='com'>
       <p class="text-center"><%= @blog.messages.count %></p>
+
           <%= render(@blog.messages) %>
 
       </div>

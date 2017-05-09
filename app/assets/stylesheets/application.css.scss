@@ -18,6 +18,69 @@
 @import "bootstrap";
 @import "font-awesome-sprockets";
 @import "font-awesome";
+
+body {
+  width: 100%;
+  margin: 0 auto;
+  position: relative;
+  height: 100%;
+  min-height: 650px;
+}
+a {
+  color: #000000;
+  text-decoration: none;
+}
+.navbar-right {
+  ul {
+    list-style: none;
+    li {
+      display: inline-block;
+    }
+  }
+}
+.logo {
+  display: inline-block;
+  padding: 0 5px;
+}
+.logo-img {
+  display: inline-block;
+  width: 50px;
+  height: 50px;
+  vertical-align: middle;
+}
+body {
+  background-image: url("Berries.png");
+  background-repeat: no-repeat;
+  background-position: 100% 100%;
+  background-color: #ffffff;
+  background-size: 200px 200px;
+}
+html, body, p {
+  margin: 0;
+}
+
+body {
+  background-color: #f6fbf6;
+  font-family: 'Arial', sans-serif;
+}
+.message, .products {
+  border: 1px solid #e7e7e7;
+  border-radius: 10px;
+  background-color: #f8f8f8;
+  padding: 10px;
+  overflow: hidden;
+  position: relative;
+  margin: 10px 0;
+  .del {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+  }
+  .time {
+    font-size: 10px;
+    font-style: italic;
+  }
+}
 .avatar-mini {
   width: 50px;
   height: 40px;
@@ -67,4 +130,122 @@
 }
 .carousel-control.left, .carousel-control.right {
   background-image: none;
+}
+.product-img {
+  width: 100px;
+  height: 100px;
+  border-radius: 10px;
+  border: 1px solid #e7e7e7;
+  vertical-align: middle;
+  display: table-cell;
+  background-color: #ffffff;
+  img {
+    border-radius: 10px;
+  }
+}
+.products {
+  h2 {
+    font-style: italic;
+    margin: 10px 0;
+    color: darkslateblue;
+  }
+  .button_to {
+    text-align: right;
+    .price-button {
+
+    }
+  }
+}
+.shot-description {
+  max-height: 3.6em;
+  overflow: hidden;
+  line-height: 1.2em;
+  position: relative;
+  text-align: justify;
+  padding-right: 15px;
+  &:after {
+    content: '...';
+    position: absolute;
+    bottom: 0;
+    right: 0;
+  }
+}
+.price {
+  font-size: 20px;
+  color: #7f09ff;
+  text-align: right;
+}
+
+.basket-list {
+  list-style-type: decimal;
+  .product-img {
+    width: 50px;
+    height: 50px;
+    display: inline-block;
+    border-width: 0;
+  }
+}
+.basket-img {
+  width: 150px;
+  height: 150px;
+  vertical-align: middle;
+  display: inline-block;
+}
+.mini-basket {
+  max-width: 300px;
+  width: 100%;
+  position: fixed;
+  z-index: 10000;
+  top: 60px;
+  right: 10px;
+  border-radius: 10px;
+  border: 1px solid #e7e7e7;
+  background-image: url("basket.png");
+  background-repeat: no-repeat;
+  overflow: hidden;
+  //background-size: 100%;
+  //background-position: 50% 50%;
+  background-color: rgba(255, 255, 255, 1);
+  h4 {
+    text-align: center;
+  }
+  .mini-basket-list {
+    padding: 5px;
+    background-color: rgba(255, 255, 255, 0.9);
+    .basket-img {
+      width: 50px;
+      height: 50px;
+    }
+    .total {
+      text-align: right;
+    }
+    .button_to {
+      text-align: center;
+    }
+  }
+
+}
+.list-blogs {
+  h2 {
+    text-align: center;
+  }
+  .product-img {
+    width: 250px;
+    height: 250px;
+  }
+  .shot-description {
+    margin: 10px 0;
+  }
+}
+.message-info {
+  margin: 20px 0;
+  span {
+    font-size: 12px;
+    font-style: italic;
+    margin-right: 15px;
+    &:last-child {
+      color: #3c763d;
+      font-size: 10px;
+    }
+  }
 }
