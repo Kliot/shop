@@ -1,4 +1,4 @@
-class Users::SessionsController < Users::SessionsController
+#class Users::SessionsController < Users::SessionsController
   # before_action :configure_sign_in_params, only: [:create]
 
   # GET /resource/sign_in
@@ -23,4 +23,4 @@ class Users::SessionsController < Users::SessionsController
   #   devise_parameter_sanitizer.permit(:sign_in, keys: [:attribute])
   # end
 
-end
+#end

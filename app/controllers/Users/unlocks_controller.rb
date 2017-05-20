@@ -1,4 +1,4 @@
-class Users::UnlocksController < Users::UnlocksController
+#class Users::UnlocksController < Users::UnlocksController
   # GET /resource/unlock/new
   # def new
   #   super
@@ -25,4 +25,4 @@ class Users::UnlocksController < Users::UnlocksController
   # def after_unlock_path_for(resource)
   #   super(resource)
   # end
-end
+#end

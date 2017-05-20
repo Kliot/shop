@@ -1,4 +1,4 @@
-class Users::OmniauthCallbacksController < Users::ConfirmationsController
+#class Users::OmniauthCallbacksController < Users::ConfirmationsController
 #   def github
 #     create_provider_session
 #   end
@@ -32,4 +32,4 @@ class Users::OmniauthCallbacksController < Users::ConfirmationsController
 #   def user_info
 #     auth_hash[:info]
 #   end
- end
+ #end

@@ -22,7 +22,6 @@ Rails.application.routes.draw do
   resources :blogs do
     resources :messages
   end
-
   get 'blog/:id/likes', to: 'blogs#likes', as: :likes
   resources :orders
   get '/auth/:provider/callback', to: 'sessions#create'
