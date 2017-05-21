@@ -17,7 +17,7 @@
               <%= link_to '', blog_likes_path(@blog), :class => 'glyphicon glyphicon-thumbs-up' %>
               <%= @blog.likers_count%>
               <%= link_to '', blog_unlikes_path(@blog), :class => 'glyphicon glyphicon-thumbs-down'  %>
-              <%= @blog.likees_count%>
+
               <p><%= link_to 'Edit', edit_blog_path(@blog), class: "glyphicon glyphicon-edit" %></p>
             </div>
             <p class="del"><%= link_to '', blog_path(@blog), class: "glyphicon glyphicon-remove",
