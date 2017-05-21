@@ -74,17 +74,4 @@ aggregate, although the species R.
 fruticosus is considered a synonym of R. plicatus.},
                 image_url: 'blackberries.jpg',
                 price: 76.95)
-Blog.create!(title: 'The best places for berry picking near Chicago',
-                description:
-                    %{
-            Berry picking is an essential summer pastime, especially for
- families. But even if you live smack dab in the action in Chicago, you can
-still take a day trip to find a farm where you can pick your own strawberries,
-raspberries, blueberries and more. Many spots also have other fun, kid-friendly
-attractions like petting zoos or wagon rides. Bring those berries home to make
-your own dessert when you just can't get out to nab one of the city's best pies,
- or blend a handful up for your own take on one of Chicago's
-best frozen cocktails, long after the kids have fallen asleep.},
-
-               )
 AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password')
