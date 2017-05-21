@@ -8,7 +8,7 @@ class User < ApplicationRecord
   has_many :blogs
   has_many :messages
   has_many :auth_providers, dependent: :destroy
-  has_many :likes, dependent: :destroy
+  # has_many :likes, dependent: :destroy
   has_and_belongs_to_many :liked_blogs, class_name: 'Blog'
   # has_secure_password
   acts_as_liker
