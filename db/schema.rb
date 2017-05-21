@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170509112749) do
+ActiveRecord::Schema.define(version: 20170521110851) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace"
@@ -57,12 +57,16 @@ ActiveRecord::Schema.define(version: 20170509112749) do
     t.string   "title"
     t.text     "description"
     t.string   "image_url"
-    t.datetime "created_at",                 null: false
-    t.datetime "updated_at",                 null: false
-    t.integer  "likees_count",   default: 0
-    t.integer  "messages_count", default: 0, null: false
-    t.integer  "likers_count",   default: 0
+    t.datetime "created_at",                         null: false
+    t.datetime "updated_at",                         null: false
+    t.integer  "likees_count",           default: 0
+    t.integer  "messages_count",         default: 0, null: false
+    t.integer  "likers_count",           default: 0
     t.integer  "user_id"
+    t.string   "image_url_file_name"
+    t.string   "image_url_content_type"
+    t.integer  "image_url_file_size"
+    t.datetime "image_url_updated_at"
     t.index ["user_id"], name: "index_blogs_on_user_id"
   end
 
@@ -82,9 +86,15 @@ ActiveRecord::Schema.define(version: 20170509112749) do
   create_table "likes", force: :cascade do |t|
     t.integer  "user_id"
     t.integer  "blog_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+    t.string   "liker_type"
+    t.integer  "liker_id"
+    t.string   "likeable_type"
+    t.integer  "likeable_id"
     t.index ["blog_id"], name: "index_likes_on_blog_id"
+    t.index ["likeable_id", "likeable_type"], name: "fk_likeables"
+    t.index ["liker_id", "liker_type"], name: "fk_likes"
     t.index ["user_id"], name: "index_likes_on_user_id"
   end
 

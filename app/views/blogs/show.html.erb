@@ -4,7 +4,7 @@
           <div class="products col-md-12">
               <div class="col-md-4">
                 <p class="product-img">
-                  <%= image_tag (@blog.image_url), class: "img-responsive" %>
+                  <%= image_tag @blog.image_url.url(:medium) %>
                 </p>
               </div>
             <div class="col-md-8">
@@ -14,9 +14,9 @@
             <span class="product-like">
       </span>
             <div class="col-md-12">
-              <%= link_to '', likes_path(@blog), :class => 'glyphicon glyphicon-thumbs-up' %>
+              <%= link_to '', blog_likes_path(@blog), :class => 'glyphicon glyphicon-thumbs-up' %>
               <%= @blog.likers_count%>
-              <%= link_to '', likes_path(@blog), :class => 'glyphicon glyphicon-thumbs-down'  %>
+              <%= link_to '', blog_unlikes_path(@blog), :class => 'glyphicon glyphicon-thumbs-down'  %>
               <%= @blog.likees_count%>
               <p><%= link_to 'Edit', edit_blog_path(@blog), class: "glyphicon glyphicon-edit" %></p>
             </div>

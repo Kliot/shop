@@ -1,4 +1,5 @@
-class CreateActiveAdminComments < ActiveRecord::Migration::Current
+class CreateActiveAdminComments < Active
+      t.datetime :created_atRecord::Migration::Current
   def self.up
     create_table :active_admin_comments do |t|
       t.string :namespace

@@ -18,5 +18,6 @@ class BlogPolicy < ApplicationPolicy
 
   def destroy?
     user.role_admin?
+    user.role_user?
   end
 end

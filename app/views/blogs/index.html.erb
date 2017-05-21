@@ -26,10 +26,10 @@
               <p><%= link_to 'Show', blog, class: "glyphicon glyphicon-eye-open" %></p>
               <p>messages in blog <%= blog.messages.count %></p>
             </div>
-            <!--%  if policy(blog).destroy? %-->
+            <%  if policy(blog).destroy? %>
             <p class="del"><%= link_to '',  blog, class: "glyphicon glyphicon-remove",
                                                method: :delete %></p>
-                <!--% end %>-->
+                <% end %>
           </div>
         </div>
     <% end %>

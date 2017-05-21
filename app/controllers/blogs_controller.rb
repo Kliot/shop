@@ -3,16 +3,12 @@ class BlogsController < ApplicationController
   before_action :set_blog, only: [:show, :edit, :update, :destroy]
 
   def likes
-    @user = current_user # before_action :authenticate_user, only: [:likes]
-    @blog = Blog.find(params[:id])
-    @user.like!(@blog)
-    redirect_to :back
+    current_user.like!(Blog.find_by(id: params[:blog_id]))
+    redirect_to blog_path(params[:blog_id])
   end
   def unlikes
-    @user = current_user # before_action :authenticate_user, only: [:likes]
-    @blog = Blog.find(params[:id])
-    @user.unlike!(@blog)
-    redirect_to :back
+    current_user.unlike!(Blog.find_by(id: params[:blog_id]))
+    redirect_to blog_path(params[:blog_id])
   end
   def index
     # @blogs = Blog.all
